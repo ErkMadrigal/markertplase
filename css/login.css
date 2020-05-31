@@ -1,0 +1,28 @@
+body{
+    background: #000000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #000000, #434343); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #000000, #434343);
+}
+#card{
+    margin-top: 9%;
+    margin-bottom: 6%;
+
+}
+.card-color{
+    background-color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 1035px) {
+    #card{
+        margin-top: 9%;
+        margin-bottom: 10%;
+    
+    }
+  }
+  @media (max-width: 1035px) {
+    #card{
+        margin-top: 9%;
+        margin-bottom: 10%;
+    
+    }
+  }
