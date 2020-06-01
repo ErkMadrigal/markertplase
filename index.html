@@ -7,23 +7,12 @@
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
     <title>Sidebar template</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/adminlte.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="frolaCSS/froala_editor.css">
-    <link rel="stylesheet" href="frolaCSS/froala_style.css">
-    <link rel="stylesheet" href="frolaCSS/code_view.css">
-    <link rel="stylesheet" href="frolaCSS/colors.css">
-    <link rel="stylesheet" href="frolaCSS/emoticons.css">
-    <link rel="stylesheet" href="frolaCSS/image_manager.css">
-    <link rel="stylesheet" href="frolaCSS/image.css">
-    <link rel="stylesheet" href="frolaCSS/line_breaker.css">
-    <link rel="stylesheet" href="frolaCSS/quick_insert.css">
-    <link rel="stylesheet" href="frolaCSS/table.css">
-    <link rel="stylesheet" href="frolaCSS/file.css">
-    <link rel="stylesheet" href="frolaCSS/char_counter.css">
-    <link rel="stylesheet" href="frolaCSS/video.css">
-    <link rel="stylesheet" href="frolaCSS/fullscreen.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 </head>
 
 <body>
@@ -34,7 +23,7 @@
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
             <div class="sidebar-brand">
-                <a href="#">pro sidebar</a>
+                <a href="../../index2.html"><b>Market</b>Plase</a>
                 <div id="close-sidebar">
                 <i class="fas fa-times"></i>
                 </div>
@@ -48,27 +37,12 @@
                 <span class="user-name">Jhon
                     <strong>Smith</strong>
                 </span>
-                <span class="user-role">Administrator</span>
                 <span class="user-status">
                     <i class="fa fa-circle"></i>
                     <span>Online</span>
                 </span>
                 </div>
             </div>
-            <!-- sidebar-header  -->
-            <div class="sidebar-search">
-                <div>
-                <div class="input-group">
-                    <input type="text" class="form-control search-menu" placeholder="Search...">
-                    <div class="input-group-append">
-                    <span class="input-group-text">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <!-- sidebar-search  -->
             <div class="sidebar-menu">
                 <ul>
                 <li class="header-menu">
@@ -228,56 +202,370 @@
         </nav>
         <!-- inicio contenedor -->
         <main class="page-content mb-5">
-            <div class="card border-primary mr-2 ml-2 p-0 ">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <div class="user-pic">
-                                <img class="img-responsive img-rounded rounded-circle" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-                                alt="User picture" style="width: 4rem;">
-                            </div>
+            <div class="card m-5 align-items-center border-primary mb-5" style="box-shadow: 1px 2px 6px 5px rgba(0,0,0,0.15);">
+                <div class="row">
+                    <div class="col-5">
+                        <img src="img/mercado.png" class="img-fluid rounded float-right" alt="Responsive image" style="width: 20%;">
+                    </div>
+                    <div class="col-7">
+                        <h1 class="rounded float-left"><b>Market</b>Plase</h1>
+                    </div>
+                </div>
+                <div class="input-group input-group input-group-lg mb-3 mt-5">
+                    <input type="text" class="form-control" placeholder="find what you want" aria-label="find what you want" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-primary text-white" id="basic-addon2"><i class="fas fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                    <h3>150</h3>
+    
+                    <p>New Orders</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+    
+                    <p>Bounce Rate</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                    <h3>44</h3>
+    
+                    <p>User Registrations</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                    <h3>65</h3>
+    
+                    <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                </div>
+                <!-- ./col -->
+            </div>
+            <div class="" id="content">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Results</h1>
                         </div>
-                        <div class="col-sm-11">
-                            <div class="user-info">
-                                <span class="user-name h3 p-3">Jhon
-                                    <strong>Smith</strong>
-                                </span>
-                                <br>
-                                <br>
-                                <span class="user-status p-3">
-                                    <i class="fa fa-circle"></i>
-                                    <span>Online</span>
-                                </span>
+                    </div><!-- /.container-fluid -->
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+
+                <!-- Default box -->
+                <div class="card card-solid">
+                    <div class="card-body pb-0">
+                        <div class="row">
+                        
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <img src="../../dist/img/user2-160x160.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <img src="../../dist/img/user2-160x160.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <img src="../../dist/img/user2-160x160.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
-                <div class="card-body">
-                    <div id="contenedorMsg" style="height: 380px;width: 100%;overflow-y: scroll;">
-                        
-                    </div>        
-                </div>
-                <div class="card-footer">
-                    <form class="needs-validation-msg" novalidate>
-                        <div class="row">
-                            <div class="col-11">
-                                <div class="form-group">
-                                    <div id="editor">
-                                        <textarea id='edit' class="edit" name="text" style="width: 100%;"">
-                                        </textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-1">
-                                <div class="form-group">
-                                    <button class="btn btn-primary float-right mb-4"><i class="fas fa-location-arrow"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </form>
-                </div>
+                <!-- /.card -->
+
+                </section>
+                <!-- /.content -->
             </div>
+
+            
         </main>
         <!-- final contenedor -->
         
@@ -321,45 +609,6 @@
 
         });
     </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
-    <script type="text/javascript" src="frolaJS/froala_editor.min.js"></script>
-    <script type="text/javascript" src="frolaJS/align.min.js"></script>
-    <script type="text/javascript" src="frolaJS/code_beautifier.min.js"></script>
-    <script type="text/javascript" src="frolaJS/code_view.min.js"></script>
-    <script type="text/javascript" src="frolaJS/colors.min.js"></script>
-    <script type="text/javascript" src="frolaJS/emoticons.min.js"></script>
-    <script type="text/javascript" src="frolaJS/draggable.min.js"></script>
-    <script type="text/javascript" src="frolaJS/font_size.min.js"></script>
-    <script type="text/javascript" src="frolaJS/font_family.min.js"></script>
-    <script type="text/javascript" src="frolaJS/image.min.js"></script>
-    <script type="text/javascript" src="frolaJS/image_manager.min.js"></script>
-    <script type="text/javascript" src="frolaJS/line_breaker.min.js"></script>
-    <script type="text/javascript" src="frolaJS/quick_insert.min.js"></script>
-    <script type="text/javascript" src="frolaJS/link.min.js"></script>
-    <script type="text/javascript" src="frolaJS/lists.min.js"></script>
-    <script type="text/javascript" src="frolaJS/paragraph_format.min.js"></script>
-    <script type="text/javascript" src="frolaJS/paragraph_style.min.js"></script>
-    <script type="text/javascript" src="frolaJS/video.min.js"></script>
-    <script type="text/javascript" src="frolaJS/table.min.js"></script>
-    <script type="text/javascript" src="frolaJS/url.min.js"></script>
-    <script type="text/javascript" src="frolaJS/file.min.js"></script>
-    <script type="text/javascript" src="frolaJS/entities.min.js"></script>
-    <script type="text/javascript" src="frolaJS/inline_style.min.js"></script>
-    <script type="text/javascript" src="frolaJS/save.min.js"></script>
-    <script type="text/javascript" src="frolaJS/fullscreen.min.js"></script>
-    <script>
-        (function () {
-        new FroalaEditor("#edit", {
-            toolbarInline: true,
-            toolbarButtons: [ ['bold', 'italic', 'underline', 'strikeThrough', 'textColor', 'backgroundColor', 'emoticons'], ['paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent'], ['insertImage', 'insertLink', 'insertFile', 'insertVideo', 'undo', 'redo'] ],
-            toolbarButtonsXS: null,
-            toolbarButtonsSM: null,
-            toolbarButtonsMD: null
-        })
-        })()
-    </script>
-    <script src="js/app.js"></script>
 </body>
 
 </html>
