@@ -131,7 +131,7 @@
                             </div>
                             <!-- /.col -->
                             <div class="col-4">
-                                <button class="btn btn-primary btn-block">Registrar</button>
+                                <button class="btn btn-primary btn-block" id="registrar">Registrar</button>
                             </div>
                             <!-- /.col -->
                         </div>
@@ -326,6 +326,7 @@
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
     <script src="js/demo.js"></script>
+    <script src="js/Notify.js"></script>
     <script src="js/registar-usuario.js"></script>
   </body>
 </html>
