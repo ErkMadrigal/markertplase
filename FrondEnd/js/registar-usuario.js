@@ -11,16 +11,17 @@
           if (form.checkValidity()){
               let data = new FormData(forms[0]);
               data.append("opcion","registrarUsuario");
-              fetch("http://localhost/markertplase/BackEnd/",{
-                  method : "POST",
-                  body : data
-              })
-              .then((resp)=>resp.json())
+              let url = "http://localhost/markertplase/BackEnd/";
+              fetchAPI(url, "POST", data) 
               .then((data)=>{
-                console.log(data);
-                  // if(data.estatus == "ok"){
-                  //   Notify(data.mensaje, null, null, 'success');
-                  // }
+                  if(data.estatus == "ok"){
+                    console.log(data.mensaje)
+                    Notify(data.mensaje, null, null, 'success');
+                    $(".needs-validation-register")[0].reset();
+                    $(".needs-validation-register").removeClass("was-validated");
+                  } else {
+                    Notify(data, null, null, 'danger');
+                }
               })
               .catch((e)=>console.error(e));
           }

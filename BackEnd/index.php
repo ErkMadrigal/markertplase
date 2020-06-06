@@ -29,11 +29,36 @@
 
             $imagenPerfil = $_FILES['imagenPerfil'];            
             $img = $metodosExtra->img($imagenPerfil);
-
-            $respuesta = $metodosExtra->validarDatos($name, $email, $pass, $img, $typeUser, $fecha);
-
-            // $respuesta = $inserciones->registrarUsuario($name, $email, $pass, 'img/default.jpg', $typeUser, $fecha);
             
+            $errores = [];
+            
+            if( $metodosExtra->isName($name) === 0 ){
+                $errores[] = "por favor ingresa un nombre valido";
+            }
+            if( $metodosExtra->isMail( $email ) === 0) {
+                $errores[] = "ingresa un correo o un numero valido";
+            }
+            if( $metodosExtra->diffDate($fecha) === 0){
+                $errores[] = "no puede ser la misma fecha"; 
+            }
+            if( $metodosExtra->diffDate($fecha) < 6570){
+                $errores[] = "no puedes crear tu cuenta, debes ser mayor de edad"; 
+            }
+
+            if(count($errores) === 0){
+                $validarUsuario = $consultas->userValidate($email);
+                if(!$validarUsuario){
+                    $respuesta = $inserciones->registrarUsuario($name, $email, $pass, $img, $typeUser, $fecha);
+                }else{
+                    $respuesta["estatus"] = "error";
+                    $respuesta["mensaje"] = "el usuario ya existe";
+                }
+                $respuesta;
+            }else{
+                $respuesta = $errores;
+            }
+
+
         break;
     }
    

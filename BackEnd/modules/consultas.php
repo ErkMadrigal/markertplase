@@ -1,18 +1,15 @@
 <?php 
     class consultas{
 
-        public function userValidate( $password, $email, $name ){
+        public function userValidate( $email){
             $response  = null;
-
             try{
-                $sql = "SELECT * FROM users WHERE  name= :name AND email= :email AND password= :password";
+                $sql = "SELECT * FROM users WHERE email = :email";
                 $database = new database();
                 
                 $dbc = $database->getConnection();
                 $stmt = $dbc->prepare($sql);
-                $stmt->bindParam(":name",$name);
                 $stmt->bindParam(":email",$email);
-                $stmt->bindParam(":password",$password);
                 $stmt->execute();
                 $count = $stmt->rowCount();
                 $response  = ( $count > 0  ) ? true : false;
