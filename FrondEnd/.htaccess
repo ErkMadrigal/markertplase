@@ -7,3 +7,4 @@ RewriteEngine on
 #configuración para redirección con url amigables
 RewriteRule ^index$ index.php
 RewriteRule ^register$ index.php?dir=register
+ 
