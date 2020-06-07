@@ -1,9 +1,11 @@
 <?php 
     include 'modules/root.php'; 
     $title  = "Bienvenido";  
-    $header= false;
+    $header = false;
+    $footer = false;
     include 'modules/components/header.php';
     
+
     $url=(isset($_GET['dir']))?$_GET['dir']:'login';
 
     switch ($url) {

@@ -3,7 +3,7 @@
     <div class="hold-transition register-page">
         <div class="register-box">
             <div class="register-logo">
-                <a href="../../index2.html"><b>Market</b>Plase</a>
+                <p><b>Market</b>Plase</p>
             </div>
     
             <div class="card animated slideInDown mb-5">
@@ -132,7 +132,7 @@
                         </div>
                     </div>
     
-                    <a href="<?php echo $root;?>index.php" class="text-center">Ya tengo cuenta</a>
+                    <a href="<?php echo $root;?>" class="text-center">Ya tengo cuenta</a>
                 </div>
                 <!-- /.form-box -->
             </div><!-- /.card -->
