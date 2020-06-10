@@ -1,4 +1,7 @@
 <?php 
+session_start(); 
+if(isset($_SESSION["idUser"])):
+
     include 'modules/root.php'; 
     $title  = "Bienvenido";  
     $header = true;
@@ -14,6 +17,11 @@
         
         case 'index':
             include 'modules/pages/index.php';
+            $scripts = [
+                "plugins/bootstrap/js/bootstrap.bundle.min.js",
+                "js/adminlte.min.js",
+                "js/demo.js"
+            ];
         break;
 
         case 'marketplace':
@@ -40,6 +48,15 @@
 
         case 'perfile':
             include 'modules/pages/perfile.php';
+            $scripts = [
+                "plugins/bootstrap/js/bootstrap.bundle.min.js",
+                "js/adminlte.min.js",
+                "js/demo.js"
+            ];
+        break;
+        
+        case 'error404':
+            include 'modules/pages/error404.php';
         break;
         
         default:
@@ -48,4 +65,18 @@
     }
 
     include 'modules/components/footer.php'; 
+
+else:
+    $header = true;
+    $footer = true;
+
+    $titulo  = "Uy, algo perdido!"; 
+
+    include 'modules/components/header.php';
+
+        include "modules/pages/error404.php";
+
+    include 'modules/components/footer.php';
+
+endif;
 ?>

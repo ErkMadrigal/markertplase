@@ -1,5 +1,7 @@
 <?php if( $footer ):?>
     </div>
+    
+<script >var root = "<?= $root;?>";</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"crossorigin="anonymous"></script>
@@ -36,6 +38,8 @@
 
         });
     </script>
+    <script src="js/fetch-api.js"></script>
+    <script src="js/app.js"></script>
 
     <?php if( isset( $scripts ) ) : ?>
         <?php foreach( $scripts as $script ) : ?>
@@ -204,6 +208,7 @@
     
     </footer>
     <!-- Footer -->
+    <script >var root = "<?= $root;?>";</script>
         <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -212,9 +217,14 @@
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
     <script src="js/demo.js"></script>
-    <script src="js/registar-usuario.js"></script>
     <script src="js/Notify.js"></script>
     <script src="js/fetch-api.js"></script>
+    <?php if( isset( $scripts ) ) : ?>
+        <?php foreach( $scripts as $script ) : ?>
+            <script src="<?=  $script; ?>"></script>
+        <?php endforeach;?>
+    <?php endif;?>
+
 
   </body>
 </html>

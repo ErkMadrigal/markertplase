@@ -1,7 +1,0 @@
-AuthName "Autorizacion requerida"  
-AuthUserFile .htpasswd             
-AuthType Basic
-require user Erk                   
-
-
-

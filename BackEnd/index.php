@@ -13,8 +13,8 @@
     $opcion = $_POST["opcion"];
 
     switch( $opcion ){
-        case "new":
-            $respuesta = "hola mundo";
+        case "loginUsuario":
+            $respuesta = $consultas->loginUsuario( $_POST["email"] , $_POST["password"] );
         break;
 
         case "registrarUsuario":
