@@ -37,7 +37,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                      <button class="btn btn-primary btn-block">Acceder</button>
+                      <button class="btn btn-primary btn-block"><i class="fas fa-location-arrow"></i></button>
                     </div>
                     <!-- /.col -->
                   </div>

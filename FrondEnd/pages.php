@@ -2,6 +2,8 @@
 session_start(); 
 if(isset($_SESSION["idUser"])):
 
+    $idUsr = $_SESSION["idUser"];
+
     include 'modules/root.php'; 
     $title  = "Bienvenido";  
     $header = true;
@@ -15,8 +17,8 @@ if(isset($_SESSION["idUser"])):
 
     switch ($url) {
         
-        case 'index':
-            include 'modules/pages/index.php';
+        case 'dashboard':
+            include 'modules/pages/dashboard.php';
             $scripts = [
                 "plugins/bootstrap/js/bootstrap.bundle.min.js",
                 "js/adminlte.min.js",
@@ -30,10 +32,19 @@ if(isset($_SESSION["idUser"])):
         
         case 'msg':
             include 'modules/pages/msg.php';
+            $scripts = [
+                "plugins/bootstrap/js/bootstrap.bundle.min.js",
+                "js/adminlte.min.js",
+                "js/demo.js"
+            ];
         break;
         
         case 'product':
-                
+            $link = [
+                "plugins/fontawesome-free/css/all.min.css",
+                "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            ];
+
             include 'modules/pages/product.php';
             
             $scripts = [
@@ -58,9 +69,27 @@ if(isset($_SESSION["idUser"])):
         case 'error404':
             include 'modules/pages/error404.php';
         break;
+
+        case 'contacts':
+            include 'modules/pages/contacts.php';
+        break;
+
+        case 'bought-things':
+            include 'modules/pages/bought-things.php';
+            $scripts = [
+                "plugins/bootstrap/js/bootstrap.bundle.min.js",
+                "js/adminlte.min.js",
+                "js/demo.js"
+            ];
+        break;
         
         default:
-            include 'modules/pages/index.php';
+            include 'modules/pages/dashboard.php';
+            $scripts = [
+                "plugins/bootstrap/js/bootstrap.bundle.min.js",
+                "js/adminlte.min.js",
+                "js/demo.js"
+            ];
         break;
     }
 

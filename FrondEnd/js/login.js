@@ -9,7 +9,7 @@
                 event.preventDefault();
                 event.stopPropagation();
                 if (form.checkValidity()) {
-                    let url = "http://localhost/markertplase/BackEnd/";
+                    let url = root+"BackEnd/";
                     let data = new FormData(forms[0]);
                     data.append("opcion","loginUsuario");
                     fetchAPI(url,"POST",data)
@@ -18,10 +18,10 @@
                             let dataSession = new FormData();
                             dataSession.append("idUser", data.mensaje.id_user);
                             dataSession.append("idTypeUser", data.mensaje.id_type_user);
-                            fetchAPI(root+"modules/session/session-start.php", "POST", dataSession)
+                            fetchAPI(root+"FrondEnd/modules/session/session-start.php", "POST", dataSession)
                             .then((data)=>{
                                 if(data.estatus == "ok"){
-                                    location.href = "view";
+                                    location.href = "dashboard";
                                 }
                             });
                             }else{

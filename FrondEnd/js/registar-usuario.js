@@ -11,7 +11,7 @@
           if (form.checkValidity()){
               let data = new FormData(forms[0]);
               data.append("opcion","registrarUsuario");
-              let url = "http://localhost/markertplase/BackEnd/";
+              let url = root+"BackEnd/";
               fetchAPI(url, "POST", data) 
               .then((data)=>{
                   if(data.estatus == "ok"){

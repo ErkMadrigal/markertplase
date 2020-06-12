@@ -111,7 +111,7 @@
                             </div>
                             <!-- /.col -->
                             <div class="col-4">
-                                <button class="btn btn-primary btn-block" id="registrar">Registrar</button>
+                                <button class="btn btn-primary btn-block" id="registrar"><i class="fas fa-location-arrow"></i></button>
                             </div>
                             <!-- /.col -->
                         </div>
@@ -121,18 +121,18 @@
                         <div class="row">
                             <div class="col-6">
                                 <a href="#" class="btn btn-block btn-primary">
-                                    Sign up using <i class="fab fa-facebook mr-2"></i>
+                                    <i class="fab fa-facebook mr-2"></i>
                                 </a>
                             </div>
                             <div class="col-6">
                                 <a href="#" class="btn btn-block btn-danger">
-                                    Sign up using <i class="fab fa-google-plus mr-2"></i>
+                                    <i class="fab fa-google-plus mr-2"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
     
-                    <a href="<?php echo $root;?>" class="text-center">Ya tengo cuenta</a>
+                    <a href="<?php echo $root;?>FrondEnd" class="text-center">Ya tengo cuenta</a>
                 </div>
                 <!-- /.form-box -->
             </div><!-- /.card -->

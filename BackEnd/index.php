@@ -13,10 +13,6 @@
     $opcion = $_POST["opcion"];
 
     switch( $opcion ){
-        case "loginUsuario":
-            $respuesta = $consultas->loginUsuario( $_POST["email"] , $_POST["password"] );
-        break;
-
         case "registrarUsuario":
             $name = ( $_POST['name'] !== "" ) ? $_POST['name'] : null ;
             $email = ( $_POST['email'] !== "" ) ? $_POST['email'] : null ;
@@ -59,6 +55,14 @@
             }
 
 
+        break;
+
+        case "loginUsuario":
+            $respuesta = $consultas->loginUsuario( $_POST["email"] , $_POST["password"] );
+        break;
+
+        case "getDataUsr":
+            $respuesta = $consultas->getUser($_POST["idUsr"]);
         break;
     }
    

@@ -1,6 +1,11 @@
         <!-- inicio contenedor -->
         <main class="page-content mb-5">
-            <div class="card m-5 align-items-center border-primary mb-5" style="box-shadow: 1px 2px 6px 5px rgba(0,0,0,0.15);">
+        <?php 
+            $titlePage = "Dashboard";
+            $titleNav = null;
+            include 'modules/components/nav-page.php';
+        ?>
+            <div class="card m-5 align-items-center border-primary shadow p-3 mb-5 bg-white rounded">
                 <div class="row">
                     <div class="col-5">
                         <img src="img/mercado.png" class="img-fluid rounded float-right" alt="Responsive image" style="width: 20%;">
@@ -81,7 +86,7 @@
                 <!-- ./col -->
             
                 <div class="col-lg-6">
-                    <div class="card direct-chat direct-chat-primary">
+                    <div class="card direct-chat direct-chat-primary shadow p-3 mb-5 bg-white rounded">
                         <div class="card-header mt-4">
                             <h3 class="card-title">Direct Chat</h3>
 
@@ -282,7 +287,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
                         <div class="card-header">
                             <h3 class="card-title">Recently Added Products</h3>
 
@@ -364,72 +369,7 @@
                 </div>  
             </div>
             <div class="" id="content">
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Results</h1>
-                        </div>
-                    </div><!-- /.container-fluid -->
-                </section>
-
-                <!-- Main content -->
-                <section class="content">
-
-                <!-- Default box -->
-                <div class="card card-solid">
-                    <div class="card-body pb-0">
-                        <div class="row">
-                            <?php for ($i=0; $i <9 ; $i++):?>
-                                <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-                                    <div class="card bg-light">
-                                        <div class="card-header text-muted border-bottom-0">
-                                        Digital Strategist
-                                        </div>
-                                        <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                            <h2 class="lead"><b>Nicole Pearson</b></h2>
-                                            <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                                            <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                                            </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                            <img src="img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="card-footer">
-                                        <div class="text-right">
-                                            <a href="#" class="btn btn-sm bg-teal">
-                                            <i class="fas fa-comments"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-user"></i> View Profile
-                                            </a>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endfor;?>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <nav aria-label="Contacts Page Navigation">
-                        <ul class="pagination justify-content-center m-0">
-                            <?php for ($i=0; $i <10 ; $i++): ?>
-                                <li class="page-item <?= ($i === 0) ? "active" : "";?>"><a class="page-link" href="#"><?= $i +1; ?></a></li>
-                            <?php endfor;?>
-                        </ul>
-                        </nav>
-                    </div>
-                <!-- /.card -->
                 
-                </section>
-                <!-- /.content -->
             </div>
 
             

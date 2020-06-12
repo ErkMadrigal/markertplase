@@ -17,7 +17,7 @@
             $url= null;
             
             if($img['name'] !== ""){
-                $path = "../FrondEnd/img/imgPerfiles/";
+                $path = "../FrondEnd/img/img-perfiles/";
                 if (!is_dir($path)) {
                    mkdir($path, 0777, true);
                 }
