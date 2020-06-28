@@ -64,6 +64,56 @@
         case "getDataUsr":
             $respuesta = $consultas->getUser($_POST["idUsr"]);
         break;
+
+        case "getUsrs":
+            $respuesta = $consultas->getUsers($_POST["idUsr"]);
+        break;
+        
+        case "getUsers":
+            $respuesta = $consultas->getUser($_POST["idUsrs"]);
+        break;
+
+        case "post":
+
+            $titulo = ( $_POST['titulo'] !== "" ) ? $_POST['titulo'] : null ;
+            $cantidad = ( $_POST['cantidad'] !== "" ) ? $_POST['cantidad'] : null ;
+            $costo = ( $_POST['costo'] !== "") ? $_POST['costo'] : null;
+            $descripcion = ( $_POST['descripcion'] !== "") ? $_POST['descripcion'] : null;
+            $image = ( $_POST['image'] !== "") ? $_POST['image'] : null;
+            $categoria = ( $_POST['categoria'] !== "") ? $_POST['categoria'] : null;
+            $idUsr = ( $_POST['idUsr'] !== "") ? $_POST['idUsr'] : null;
+
+            $respuesta = $inserciones->registrarPost($titulo, $cantidad, $costo, $descripcion, $image, $categoria, $idUsr);
+        break;
+
+        default:
+            $target_dir = "../FrondEnd/img/img-post/"; // Upload directory
+
+            $request = 1;
+            if(isset($_POST['request'])){
+                $request = $_POST['request'];
+            }
+            
+            // Upload file
+            if($request == 1){
+                $target_file = $target_dir . basename($_FILES["file"]["name"]);
+            
+                $msg = "";
+                if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir.$_FILES['file']['name'])) {
+                    $msg = "Successfully uploaded";
+                }else{
+                    $msg = "Error while uploading";
+                }
+                echo $msg;
+            }
+            $request = $_POST['request'];
+            
+            // Remove file
+            if($request == 2){
+                $filename = $target_dir.$_POST['name']; 
+                unlink($filename); exit;
+            }
+        break;
     }
    
 

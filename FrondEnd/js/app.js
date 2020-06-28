@@ -1,5 +1,6 @@
 
 var contenedorPerfil = document.querySelector("#contenedor-perfil"); 
+var btnMyPerfil = document.querySelector("#myPerfil");
 var urlGet = root+"BackEnd/";
 let data = new FormData();
 data.append("opcion", "getDataUsr");
@@ -8,9 +9,8 @@ fetchAPI(urlGet, "POST", data)
 .then((data)=>{
     if(data.estatus == "ok"){
         let usr = data.mensaje;
-        console.log(usr.img)
             contenedorPerfil.innerHTML += `
-                <a href="perfile">
+                <a href="perfile-${usr.id_user}-${usr.name}">
                     <div class="sidebar-header">
                         <div class="user-pic">
                         <img class="img-responsive img-rounded border border-white rounded-circle" src="${ usr.img }"
@@ -28,6 +28,7 @@ fetchAPI(urlGet, "POST", data)
                     </div>
                 </a>
             `;
+            btnMyPerfil.innerHTML += `<a href="perfile-${usr.id_user}-${usr.name}">My Perfil</a>`
 
     }
 })

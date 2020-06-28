@@ -69,6 +69,40 @@
             }
             return $respuesta;
         }
+        public function getUsers($idUsers){
+            $respuesta = null;
+            try {
+                $sql = "SELECT * FROM users WHERE id_user != :id_user ORDER BY date_created LIMIT 9";
+                $database = new database();
+                $dbc = $database->getConnection();
+                $stmt = $dbc->prepare($sql);
+                $stmt->bindParam(":id_user", $idUsers);
+                $stmt->execute();
+                $respuesta["estatus"] = "ok";
+                $respuesta["mensaje"] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                $respuesta["estatus"] = "error";
+                $respuesta["mensaje"] = $e->getMessage();
+            }
+            return $respuesta;
+        }
+        public function getCategoria(){
+            $respuesta = null;
+            try {
+                $sql = "SELECT * FROM categoria WHERE 1";
+                $database = new database();
+                $dbc = $database->getConnection();
+                $stmt = $dbc->prepare($sql);
+                $stmt->execute();
+                $respuesta["estatus"] = "ok";
+                $respuesta["mensaje"] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                $respuesta["estatus"] = "error";
+                $respuesta["mensaje"] = $e->getMessage();
+            }
+            return $respuesta;
+        }
+
     }
 
 ?>

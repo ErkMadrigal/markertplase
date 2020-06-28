@@ -1,10 +1,10 @@
 
-<body class="bg-light">
+<body class="bg-light sidebar-mini sidebar-collapse layout-navbar-fixed layout-footer-fixed">
     <div class="page-wrapper chiller-theme toggled" id="menu-display-button">
         <div id="show-sidebar" class="btn btn-sm btn-dark" style="z-index: 3;">
             <i class="fas fa-bars"></i>
         </div>
-        <nav id="sidebar" class="sidebar-wrapper">
+        <nav id="sidebar" class="sidebar-wrapper" style="z-index: 9999">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
                     <a href="dashboard"><b>Market</b>Plase</a>
@@ -33,7 +33,7 @@
                                     </a>
                                     </li>
                                     <li>
-                                        <a href="perfile">My Perfile</a>
+                                        <div id="myPerfil"></div>
                                     </li>
                                     <li>
                                         <a href="msg">Menssages</a>

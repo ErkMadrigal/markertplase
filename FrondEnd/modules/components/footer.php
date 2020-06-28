@@ -39,6 +39,8 @@
         });
     </script>
     <script src="js/fetch-api.js"></script>
+    <script src="js/Notify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
     <script src="js/app.js"></script>
 
     <?php if( isset( $scripts ) ) : ?>
@@ -46,7 +48,7 @@
             <script src="<?=  $script; ?>"></script>
         <?php endforeach;?>
     <?php endif;?>
-
+    
 </body>
 </html>
 <?php else:?>

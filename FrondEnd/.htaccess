@@ -4,9 +4,10 @@ Options +FollowSymLinks
 #  le decimos a Apache que queremos sobre escribir las URLs para crear URLs amigables.
 RewriteEngine on
 
+
 #configuración para redirección con url amigables
 
-Options All -Indexes
+#Options All -Indexes
 
 DirectoryIndex index.php
 
@@ -25,16 +26,14 @@ RewriteRule ^dashboard$ pages.php?dir=dashboard
 RewriteRule ^product$ pages.php?dir=product
 RewriteRule ^marketplace$ pages.php?dir=marketplace
 RewriteRule ^msg$ pages.php?dir=msg
-RewriteRule ^perfile$ pages.php?dir=perfile
 RewriteRule ^error404$ pages.php?dir=error404
 RewriteRule ^contacts$ pages.php?dir=contacts
 RewriteRule ^bought-things$ pages.php?dir=bought-things
 
+RewriteRule ^perfile-(.*)-(.*)$ pages.php?dir=perfile&usr=$1&name=$1
 
-
- 
 # evitar que se muestren ciertos tipos de archivo
-#IndexIgnore *.css *.map *.js *.png *.jpg *.wmv *.mp4 *.avi *.etc *.php *.html *.md
+IndexIgnore *.css *.map *.js *.png *.jpg *.wmv *.mp4 *.avi *.etc
 
 
 

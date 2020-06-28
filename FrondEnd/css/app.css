@@ -10,3 +10,48 @@
     max-width: 300px;   
 }
 /* Registro  end*/
+
+.dz-remove{
+    width: 7rem;
+    height: 2rem;
+    text-decoration: none;
+    background-color: #dc3545;
+    color: white;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    /* margin-top: -12.5rem; */
+    margin-left: .5rem;
+    padding: 4px;
+}
+.dropzone .dz-preview .dz-remove:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+
+}
+.dropzone .dz-preview .dz-remove {
+    font-size: 14px;
+    text-align: center;
+    display: initial;
+    cursor: pointer;
+    border: none;
+    margin-top:-4rem;
+}
+.dz-error-message{
+    margin-top: 1.5rem;
+}
+#notifications{
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    z-index: 9999;
+    bottom: 0px;
+    margin-bottom: 22px;
+    margin-right: 15px;
+    max-width: 300px;   
+}
