@@ -19,7 +19,27 @@
                 }
             }
         })
-        .catch((e)=>console.log(e))        
+        .catch((e)=>console.log(e))   
+        
+        var contentPosts = document.querySelector("#datos_perfil");
+        var activity = document.querySelector("#activity");
+
+        var urlGetUsers = root+"BackEnd/";
+        let dataPerfil = new FormData();
+        dataPerfil.append("opcion", "getPost");
+        dataPerfil.append("idUsrs", IdPerfile);
+        fetchAPI(urlGetUsers, "POST", dataPerfil)
+        .then((dataPerfil)=>{
+            if(dataPerfil.estatus == "ok"){
+                let dataPer = dataPerfil.mensaje[0];
+                if(dataPer.id_user === idUsr){
+                    myPosts(activity, dataPerfil.mensaje)
+                }else{
+                    Posts(contentPosts, dataPerfil.mensaje);
+                }
+            }
+        })
+        .catch((e)=>console.log(e))   
 
     }, false);
 })();
@@ -27,12 +47,10 @@
 
 const datosUsuario = (contentUser, name, email, img, dateCreated, fechaNacim) =>{
     contentUser.innerHTML += `
-        <!-- Profile Image -->
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
-                    <img class="profile-user-img img-fluid img-circle" src="${img}"
-                        alt="User profile">
+                    <img class="profile-user-img img-fluid img-circle" src="${img}"alt="User profile">
                 </div>
 
                 <h3 class="profile-username text-center">${name}</h3>
@@ -53,16 +71,12 @@ const datosUsuario = (contentUser, name, email, img, dateCreated, fechaNacim) =>
 
                 <a href="" class="btn btn-primary btn-block"><b><i class="fas fa-users"></i> seguir</b></a>
             </div>
-            <!-- /.card-body -->
         </div>
-        <!-- /.card -->
 
-        <!-- About Me Box -->
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">About Me</h3>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
                 <strong><i class="fas fa-book mr-1"></i> Education</strong>
 
@@ -87,16 +101,12 @@ const datosUsuario = (contentUser, name, email, img, dateCreated, fechaNacim) =>
 
                 <p class="text-muted">${dateCreated}</p>
             </div>
-            <!-- /.card-body -->
         </div>
-        <!-- /.card -->
-        
     `;
 }
 
 const miUsuario = (contentUser, name, email, img, dateCreated, fechaNacim) =>{
     contentUser.innerHTML += `
-        <!-- Profile Image -->
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
@@ -122,16 +132,11 @@ const miUsuario = (contentUser, name, email, img, dateCreated, fechaNacim) =>{
 
                 <a href="" class="btn btn-primary btn-block"><i class="fas fa-user-edit"></i><b> modificar</b></a>
             </div>
-            <!-- /.card-body -->
         </div>
-        <!-- /.card -->
-
-        <!-- About Me Box -->
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">About Me</h3>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
                 <strong><i class="fas fa-book mr-1"></i> Education</strong>
 
@@ -156,16 +161,211 @@ const miUsuario = (contentUser, name, email, img, dateCreated, fechaNacim) =>{
 
                 <p class="text-muted">${dateCreated}</p>
             </div>
-            <!-- /.card-body -->
         </div>
-        <!-- /.card -->
-        
     `;
 }
 
-const Posts = () =>{
+const myPosts = (activity, data) =>{
+    data.forEach((dat) => {
+        let img = dat.images;
+        let arrayImg = img.split(','); 
+        
+        let dateHour = dat.date;
+        let arrayFechaHora = dateHour.split(' ');
+
+        let fecha = arrayFechaHora[0].split('-');
+        let hora = arrayFechaHora[1].split(':');
+
+        let horaForm12 = (hora[0] > 12) ? hora[0]-12: (hora[0] == 0 ) ? 12: hora[0]; 
+        let amPm = (hora[0] > 12) ? "pm" : (hora[0] == 0) ? "am" : "am"; 
+
+        var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+
+        mesPost = meses[(parseInt(fecha[1], 10)-1)];
+        
+        var realTime = new Date();
+
+        // horas
+        let h = realTime.getHours()-parseInt(hora[0], 10)
+        let m = realTime.getMinutes()-parseInt(hora[1], 10)
+        // fecha
+        let d = realTime.getDate()-parseInt(fecha[2], 10)
+        let mes= realTime.getMonth()-(parseInt(fecha[1], 10)-1)
+
+        let mesP = " publicado el " + fecha[2] + " de " + meses[parseInt(fecha[1], 10)-1] + " del " + fecha[0] + " a la " + horaForm12 +":"+hora[1] + " " +amPm;
+    
+        let validateFecha = ( m <= 0 && h <= 0 && d <= 0 && mes <= 0 ) ? "hace un segundo" :  
+                            ( h <= 0 && d <= 0 && mes <= 0 ) ? "hace " + m + " min" :
+                            ( d <= 0 && mes <= 0 ) ? "hace " + h + " h" : 
+                            ( d <= 10 && mes <= 0 ) ? "hace " + d + " d ": mesP;
+
+        activity.innerHTML += `
+            <a href="product" class="post mb-4">
+                <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="${dat.img}"alt="User Image">
+                    <span class="username">
+                        <a href="#">${dat.name}</a>
+                    </span>
+                    <span class="description">${validateFecha}<strong><i class="fas fa-users ml-2"></i></strong></span>
+
+                </div>
+                <h2>${dat.title}</h2>
+                <p>${dat.description}</p>
+                <div class="row mb-3">
+                    <div class="col-sm-6">
+                        <div class="info-box mb-3 bg-primary">
+                            <span class="info-box-icon"><i class="fas fa-dollar-sign"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Precio</span>
+                                <span class="info-box-number">$ ${dat.costo}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="info-box mb-3 bg-warning">
+                            <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Inventario</span>
+                                <span class="info-box-number">${dat.cantidad}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <img class="img-fluid mb-3" style="height: 22rem;width: 100%;" src="img/img-post/${arrayImg[0]}" alt="Photo">
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <img class="img-fluid mb-2" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[1]}" alt="Photo">
+                        <img class="img-fluid mb-2" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[2]}" alt="Photo">
+                        <img class="img-fluid" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[3]}" alt="Photo">
+                    </div>
+                </div>
+
+                <p>
+                    <a href="#" class="link-black text-sm mr-2"><i
+                            class="fas fa-share mr-1"></i> Share</a>
+                    <a href="#" class="link-black text-sm"><i
+                            class="far fa-thumbs-up mr-1"></i> Like</a>
+                    <span class="float-right">
+                        <a href="#" class="link-black text-sm">
+                            <i class="far fa-comments mr-1"></i> Comments (5)
+                        </a>
+                    </span>
+                </p>
+
+                <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+            </a>
+        `;
+
+    });
 
 }
+
+const Posts = (contentPosts, data) => {
+    data.forEach((dat) => {
+        let img = dat.images;
+        let arrayImg = img.split(',');
+
+        let dateHour = dat.date;
+        let arrayFechaHora = dateHour.split(' ');
+
+        let fecha = arrayFechaHora[0].split('-');
+        let hora = arrayFechaHora[1].split(':');
+
+        let horaForm12 = (hora[0] > 12) ? hora[0]-12: (hora[0] == 0 ) ? 12: hora[0]; 
+        let amPm = (hora[0] > 12) ? "pm" : (hora[0] == 0) ? "am" : "am"; 
+
+        var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+
+        mesPost = meses[(parseInt(fecha[1], 10)-1)];
+        
+        var realTime = new Date();
+
+        // horas
+        let h = realTime.getHours()-parseInt(hora[0], 10)
+        let m = realTime.getMinutes()-parseInt(hora[1], 10)
+        // fecha
+        let d = realTime.getDate()-parseInt(fecha[2], 10)
+        let mes= realTime.getMonth()-(parseInt(fecha[1], 10)-1)
+
+        let mesP = " publicado el " + fecha[2] + " de " + meses[parseInt(fecha[1], 10)-1] + " del " + fecha[0] + " a la " + horaForm12 +":"+hora[1] + " " +amPm;
+    
+        let validateFecha = ( m <= 0 && h <= 0 && d <= 0 && mes <= 0 ) ? "hace un segundo" :  
+                            ( h <= 0 && d <= 0 && mes <= 0 ) ? "hace " + m + " min" :
+                            ( d <= 0 && mes <= 0 ) ? "hace " + h + " h" : 
+                            ( d <= 10 && mes <= 0 ) ? "hace " + d + " d ": mesP;
+        contentPosts.innerHTML += `
+            <a href="product" class="card-body">
+                <div class="tab-content">
+                    <div class="active tab-pane" id="activity">
+                        <div class="post mb-4">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="${dat.img}"alt="User Image">
+                                <span class="username">
+                                    <a href="#">${dat.name}</a>
+                                </span>
+                                <span class="description">${validateFecha}<strong><i class="fas fa-users ml-2"></i></strong></span>
+                            </div>
+                            <h2>${dat.title}</h2>
+                            <p>${dat.description}</p>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <div class="info-box mb-3 bg-primary">
+                                        <span class="info-box-icon"><i class="fas fa-dollar-sign"></i></span>
+            
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Precio</span>
+                                            <span class="info-box-number">$ ${dat.costo}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="info-box mb-3 bg-warning">
+                                        <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+            
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Inventario</span>
+                                            <span class="info-box-number">${dat.cantidad}</span>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="col-sm-8">
+                                    <img class="img-fluid mb-3" style="height: 22rem;width: 100%;" src="img/img-post/${arrayImg[0]}" alt="Photo">
+                                </div>
+                                
+                                <div class="col-sm-4">
+                                    <img class="img-fluid mb-2" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[1]}" alt="Photo">
+                                    <img class="img-fluid mb-2" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[2]}" alt="Photo">
+                                    <img class="img-fluid" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[3]}" alt="Photo">
+                                </div>
+                            </div>
+            
+                            <p>
+                                <a href="#" class="link-black text-sm mr-2"><i
+                                        class="fas fa-share mr-1"></i> Share</a>
+                                <a href="#" class="link-black text-sm"><i
+                                        class="far fa-thumbs-up mr-1"></i> Like</a>
+                                <span class="float-right">
+                                    <a href="#" class="link-black text-sm">
+                                        <i class="far fa-comments mr-1"></i> Comments (5)
+                                    </a>
+                                </span>
+                            </p>
+            
+                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                        </div>
+                    </div>
+                </div>
+            </a>
+        `;
+
+    });
+}
+
     var cuadroFiles = document.querySelector("#cuadro-files");
     var myAwesomeDropzone = document.querySelector('#myAwesomeDropzone');
     var file = document.querySelector('#uploadfiles');

@@ -102,6 +102,25 @@
             }
             return $respuesta;
         }
+        public function getPost($idUser){
+            $respuesta = null;
+            try {
+                $sql = "SELECT * FROM posts INNER JOIN users ON users.id_user = posts.id_user WHERE posts.id_user = :id_user ORDER BY date DESC";
+                
+                $database = new database();
+                $dbc = $database->getConnection();
+                $stmt = $dbc->prepare($sql);
+                $stmt->bindParam(":id_user", $idUser);
+                $stmt->execute();
+                $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $respuesta["estatus"] = "ok";
+                $respuesta["mensaje"] = $data;
+            } catch (PDOException $e) {
+                $respuesta["estatus"] = "error";
+                $respuesta["mensaje"] = $e->getMessage();
+            }
+            return $respuesta;
+        }
 
     }
 

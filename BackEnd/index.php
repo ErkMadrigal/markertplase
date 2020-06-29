@@ -86,6 +86,10 @@
             $respuesta = $inserciones->registrarPost($titulo, $cantidad, $costo, $descripcion, $image, $categoria, $idUsr);
         break;
 
+        case "getPost":
+            $respuesta = $consultas->getPost($_POST["idUsrs"]);
+        break;
+
         default:
             $target_dir = "../FrondEnd/img/img-post/"; // Upload directory
 

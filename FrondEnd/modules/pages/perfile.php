@@ -5,11 +5,27 @@
             <?php
                 include "../BackEnd/modules/database.php";
                 include "../BackEnd/modules/consultas.php";
-
-                $consultas = new consultas();
-                $allCategorias = $consultas->getCategoria()["mensaje"];
+                include "../BackEnd/modules/metodos-extra.php";
 
                 $IdPerfile = $_GET['usr'];
+
+                $metodoExtra = new metodosExtra();
+                $consultas = new consultas();
+
+                $allCategorias = $consultas->getCategoria()["mensaje"];
+                $datos = $consultas->getUser($IdPerfile)["mensaje"];
+
+                $fechaHora = explode(" ", $datos['date_created']);
+                $fecha = explode("-", $fechaHora[0]);
+                $hora = explode(":", $fechaHora[1]);
+
+                $h = ( $hora[0] > "12" || $hora[0] == "00") ? $hora[0]-12 : $hora ;
+                $amPm = ( $hora[0] > "12" ) ? "pm" : "am";
+                
+                $mes = $metodoExtra->mes($fecha[1]);
+                
+                $fechaNacimiento = explode("-", $datos['fecha_nacimiento']);
+                $MesNacimiento = $metodoExtra->mes($fechaNacimiento[1]);
 
                 $titlePage = "perfile";
                 $titleNav = "perfile";
@@ -19,28 +35,16 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                            <div class="col-md-9 order-2 order-lg-1 order-xl-1" style="height: 60rem;overflow-y: scroll;">
-                                <div class="card card-primary collapsed-card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">post something</h3>
-                                        <div class="card-tools">
-                                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="d-flex flex-nowrap bd-highlight">
-                                            <div class="order-1 p-2 bd-highlight">
-                                                <img class="img-responsive img-rounded border border-white rounded-circle" style="width:5rem; height:5rem;" src="img/img-perfiles/default.png">
-                                            </div>
-                                            
-                                            <div class="order-2 p-2 bd-highlight w-100 mt-3" data-toggle="modal" data-target="#modal-lg">
-                                                <input class="form-control form-control-lg w-100" type="text" placeholder="que estas pensando">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
+                        <div class="col-md-9 order-2 order-lg-1 order-xl-1" style="height: 60rem;overflow-y: scroll;">
+
+                            <?php if($idUsr == $IdPerfile): include "modules/components/card-posting.php"; else:?>
+                                <form action="./" class="dropzone d-none" id="myAwesomeDropzone"> 
+                                    <button  type="button" id='uploadfiles' value='Upload Files'>Subir</button>
+                                </form>  
+                            <?php endif;?>
+                            
+                            <?php if($idUsr == $IdPerfile):?>
+                                <div class="card" id="datos_perfil">
                                     <div class="card-header p-2">
                                         <ul class="nav nav-pills">
                                             <li class="nav-item"><a class="nav-link active" href="#activity"
@@ -50,105 +54,12 @@
                                             <li class="nav-item"><a class="nav-link" href="#settings"
                                                     data-toggle="tab">Settings</a></li>
                                         </ul>
-                                    </div><!-- /.card-header -->
-                                    <div class="card-body">
+                                    </div>
+                                    <div class="card-body mb-4">
                                         <div class="tab-content">
                                             <div class="active tab-pane" id="activity">
-                                                <!-- Post -->
-                                                <div class="post">
-                                                    <div class="user-block">
-                                                        <img class="img-circle img-bordered-sm" src="img/user1-128x128.jpg"
-                                                            alt="user image">
-                                                        <span class="username">
-                                                            <a href="#">Jonathan Burke Jr.</a>
-                                                            <a href="#" class="float-right btn-tool"><i
-                                                                    class="fas fa-times"></i></a>
-                                                        </span>
-                                                        <span class="description">Shared publicly - 7:30 PM today</span>
-                                                    </div>
-                                                    <!-- /.user-block -->
-                                                    <p>
-                                                        Lorem ipsum represents a long-held tradition for designers,
-                                                        typographers and the like. Some people hate it and argue for
-                                                        its demise, but others ignore the hate as they create awesome
-                                                        tools to help create filler text for everyone from bacon lovers
-                                                        to Charlie Sheen fans.
-                                                    </p>
-
-                                                    <p>
-                                                        <a href="#" class="link-black text-sm mr-2"><i
-                                                                class="fas fa-share mr-1"></i> Share</a>
-                                                        <a href="#" class="link-black text-sm"><i
-                                                                class="far fa-thumbs-up mr-1"></i> Like</a>
-                                                        <span class="float-right">
-                                                            <a href="#" class="link-black text-sm">
-                                                                <i class="far fa-comments mr-1"></i> Comments (5)
-                                                            </a>
-                                                        </span>
-                                                    </p>
-
-                                                    <input class="form-control form-control-sm" type="text"
-                                                        placeholder="Type a comment">
-                                                </div>
-                                                <!-- /.post -->
-
-                                                <!-- Post -->
-                                                <div class="post">
-                                                    <div class="user-block">
-                                                        <img class="img-circle img-bordered-sm" src="img/user6-128x128.jpg"
-                                                            alt="User Image">
-                                                        <span class="username">
-                                                            <a href="#">Adam Jones</a>
-                                                            <a href="#" class="float-right btn-tool"><i
-                                                                    class="fas fa-times"></i></a>
-                                                        </span>
-                                                        <span class="description">Posted 5 photos - 5 days ago</span>
-                                                    </div>
-                                                    <!-- /.user-block -->
-                                                    <div class="row mb-3">
-                                                        <div class="col-sm-6">
-                                                            <img class="img-fluid" src="img/photo1.png" alt="Photo">
-                                                        </div>
-                                                        <!-- /.col -->
-                                                        <div class="col-sm-6">
-                                                            <div class="row">
-                                                                <div class="col-sm-6">
-                                                                    <img class="img-fluid mb-3" src="img/photo2.png"
-                                                                        alt="Photo">
-                                                                    <img class="img-fluid" src="img/photo3.jpg" alt="Photo">
-                                                                </div>
-                                                                <!-- /.col -->
-                                                                <div class="col-sm-6">
-                                                                    <img class="img-fluid mb-3" src="img/photo4.jpg"
-                                                                        alt="Photo">
-                                                                    <img class="img-fluid" src="img/photo1.png" alt="Photo">
-                                                                </div>
-                                                                <!-- /.col -->
-                                                            </div>
-                                                            <!-- /.row -->
-                                                        </div>
-                                                        <!-- /.col -->
-                                                    </div>
-                                                    <!-- /.row -->
-
-                                                    <p>
-                                                        <a href="#" class="link-black text-sm mr-2"><i
-                                                                class="fas fa-share mr-1"></i> Share</a>
-                                                        <a href="#" class="link-black text-sm"><i
-                                                                class="far fa-thumbs-up mr-1"></i> Like</a>
-                                                        <span class="float-right">
-                                                            <a href="#" class="link-black text-sm">
-                                                                <i class="far fa-comments mr-1"></i> Comments (5)
-                                                            </a>
-                                                        </span>
-                                                    </p>
-
-                                                    <input class="form-control form-control-sm" type="text"
-                                                        placeholder="Type a comment">
-                                                </div>
-                                                <!-- /.post -->
+                                                
                                             </div>
-                                            <!-- /.tab-pane -->
                                             <div class="tab-pane" id="timeline">
                                                 <!-- The timeline -->
                                                 <div class="timeline timeline-inverse">
@@ -254,8 +165,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- /.tab-pane -->
-
                                             <div class="tab-pane" id="settings">
                                                 <form class="form-horizontal">
                                                     <div class="form-group row">
@@ -313,86 +222,44 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <!-- /.tab-pane -->
                                         </div>
-                                        <!-- /.tab-content -->
-                                    </div><!-- /.card-body -->
+                                    </div>
                                 </div>
-                                <!-- /.nav-tabs-custom -->
+                            <?php else: ?>
+                                <div class="card" id="datos_perfil"></div>
+                            <?php endif;?>
+                            
+
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <div class="user-block">
+                                        <img class="img-circle img-bordered-sm" src="<?= $datos['img'] ?>" alt="User Image">
+                                        <span class="username text-white">
+                                            <a href="#"><?= $datos['name'];?></a>
+                                        </span>
+                                        <span class="description text-white">Se unio el <?= $fecha[2]." de ".$mes." del ".$fecha[0];?> <?= $h.":".$hora[1]." $amPm";?> <i class="fas fa-users ml-2"></i></span>
+                                    </div>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-center text-primary" style="font-size: 5rem;"><i class="fas fa-american-sign-language-interpreting"></i></p>
+                                    <p class="text-center h4 font-weight-bold">Se unio el <?= $fecha[2]." de ".$mes." del ".$fecha[0];?></p>
+                                    <p class="text-center h6 mt-4 font-weight-bold">Nacio el <?= $fechaNacimiento[2]." de ".$MesNacimiento." del ".$fechaNacimiento[0]?></p>
+                                </div>
                             </div>
 
-                            <div class="col-md-3 order-1 order-lg-2 order-xl-2">
-                                <div id="Contenedor-perfil"></div>
-                            </div>
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </section><!-- /.content -->
-        </main><!-- final contenedor -->
-        
-        <div class="modal fade" id="modal-lg">
-            <div class="modal-dialog modal-lg"> 
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">create publication</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        </div>
+
+                        <div class="col-md-3 order-1 order-lg-2 order-xl-2">
+                            <div id="Contenedor-perfil"></div>
+                        </div>
+                            
                     </div>
-                    <div class='content' id="cuadro-files">
-                        <form action="<?= $root;?>BackEnd/index.php" class="dropzone m-5" id="myAwesomeDropzone" style="overflow-y: scroll;height: 25rem;"> 
-                        </form>  
-                        <button class="btn btn-primary m-5" type="button" id='uploadfiles' value='Upload Files'>Subir</button>
-                    </div> 
-                    <form class="needs-validation-post d-none" id="form" novalidate>
-                        <div class="modal-body">
-                            <div class="input-group mb-3">
-                                <input type="text"  name="titulo" class="form-control" placeholder="titulo" required>
-                                <div class="invalid-feedback">
-                                    agrega un titulo
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <select class="custom-select" name="categoria" id="categoria" required>
-                                    <option value="">Categoria</option>
-                                    <?php foreach($allCategorias as $Categoria):?>
-                                        <option value="<?= $Categoria['id_categoria'];?>"><?= $Categoria['name'];?></option>
-                                    <?php endforeach;?>
-                                    
-                                </select>
-                                <div class="invalid-feedback">
-                                    selecciona una categoria
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <textarea class="form-control" name="descripcion" id="description" placeholder="description" required></textarea>
-                                <div class="invalid-feedback">
-                                    ingresa por favor una descripcion.
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 form-group mb-3">
-                                    <div class="input-group">
-                                        <input type="number" name="costo" id="costo" class="form-control" placeholder="costo" required>
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        ingresa un costo
-                                    </div>
-                                </div>
-                                <div class="col-6 form-group mb-3">
-                                    <div class="input-group">
-                                        <input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="cantidad" required>
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        ingresa una cantidad
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button class="btn btn-lg btn-primary w-100" type="submit"><i class="fas fa-share-square"></i> Save</button>
-                        </div>
-                    </form>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
+        
         <script>var IdPerfile  = "<?= $IdPerfile;?>";</script>  

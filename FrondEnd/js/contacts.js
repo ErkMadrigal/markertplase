@@ -22,7 +22,7 @@
                             <div class="card-body pt-0">
                             <div class="row">
                                 <div class="col-7">
-                                <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                <h2 class="lead"><b>${user.name}</b></h2>
                                 <p class="text-muted text-sm"><b>Fecha de nasim.</b> ${user.fecha_nacimiento} </p>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> direccion</li><br>
