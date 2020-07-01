@@ -7,7 +7,7 @@
     <section class="content">
 
         <div class="card card-solid">
-            <div class="card-body pb-0">
+            <div class="card-body pb-0 pl-2 pr-2">
                 <div class="row" id="content-Usr">
                     
                 </div>

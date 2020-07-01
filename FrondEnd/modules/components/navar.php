@@ -12,8 +12,23 @@
                     <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <div id="contenedor-perfil">
-                    
+                <div>
+                    <a href="" id="rutaPerfilM">
+                        <div class="sidebar-header">
+                            <div class="user-pic">
+                            <img class="img-responsive img-rounded border border-white rounded-circle" id="imagenPerfilM" src="img/loadercyan.gif" alt="User picture">
+                            </div>
+                            <div class="user-info">
+                                <span class="user-name"><b id="emailPerfilM"></b><br>
+                                    <strong class="h5" id="namePerfilM"></strong>
+                                </span>
+                                <span class="user-status">
+                                    <i class="fa fa-circle"></i>
+                                    <span>Online</span>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 
                 <div class="sidebar-menu">

@@ -106,14 +106,14 @@
                 <form class="needs-validation-msg" novalidate>
                     <div class="input-group input-group-sm">
                         <div class="input-group-prepend d-block" id="plus">
-                            <button class="btn btn-outline-light text-primary" id="extender" style="font-size: 2rem;"><i class="fas fa-plus"></i></button>
+                            <button class="btn text-primary mr-3" id="extender" style="font-size: 2rem;height: 2rem;width: 2rem;"><i class="fas fa-plus"></i></button>
                         </div>
                         <div class="input-group-prepend d-none" id="less">
-                            <button class="btn btn-outline-light text-primary" id="extraer" style="font-size: 2rem;"><i class="fas fa-angle-left"></i></button>
+                            <button class="btn text-primary" id="extraer" style="font-size: 2rem;height: 2rem;width: 2rem;"><i class="fas fa-angle-left"></i></button>
                         </div>
                         <textarea type="text" name="mensaje" id="mensaje" class="form-control fix-rounded-right ml-2 mr-2" style="overflow-y:scroll; height: 3rem; border-radius: 2rem;" placeholder="  Aa..." required></textarea>
                         <div class="input-group-prepend">
-                            <button class="btn btn-outline-light text-primary" style="font-size: 2rem;"><i class="fas fa-location-arrow"></i></button>
+                            <button class="btn text-primary" style="font-size: 2rem;height: 2rem;width: 2rem;"><i class="fas fa-location-arrow"></i></button>
                         </div>
                         <div class="invalid-feedback">
                             Please choose a username.

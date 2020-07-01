@@ -12,10 +12,14 @@
             if(dataUsrs.estatus == "ok"){
                 if(dataUsrs.mensaje.id_user === idUsr){
                     let usuario = dataUsrs.mensaje;
-                    miUsuario(contentUser, usuario.name, usuario.email, usuario.img, usuario.date_created, usuario.fecha_nacimiento);
+                    // setInterval(()=>{
+                        miUsuario(contentUser, usuario.name, usuario.email, usuario.img, usuario.date_created, usuario.fecha_nacimiento);
+                    // }, 3000);
                 }else{
                     let usuario = dataUsrs.mensaje;
-                    datosUsuario(contentUser, usuario.name, usuario.email, usuario.img, usuario.date_created, usuario.fecha_nacimiento);
+                    // setInterval(()=>{
+                        datosUsuario(contentUser, usuario.name, usuario.email, usuario.img, usuario.date_created, usuario.fecha_nacimiento);
+                    // }, 3000);
                 }
             }
         })
@@ -200,19 +204,19 @@ const myPosts = (activity, data) =>{
                             ( d <= 10 && mes <= 0 ) ? "hace " + d + " d ": mesP;
 
         activity.innerHTML += `
-            <a href="product" class="post mb-4">
+            <div class="post mb-5">
                 <div class="user-block">
                     <img class="img-circle img-bordered-sm" src="${dat.img}"alt="User Image">
                     <span class="username">
                         <a href="#">${dat.name}</a>
                     </span>
-                    <span class="description">${validateFecha}<strong><i class="fas fa-users ml-2"></i></strong></span>
+                    <span class="description">${validateFecha}<i class="fas fa-users ml-2"></i></span>
 
                 </div>
                 <h2>${dat.title}</h2>
                 <p>${dat.description}</p>
                 <div class="row mb-3">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 p-1">
                         <div class="info-box mb-3 bg-primary">
                             <span class="info-box-icon"><i class="fas fa-dollar-sign"></i></span>
 
@@ -222,7 +226,7 @@ const myPosts = (activity, data) =>{
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 p-1">
                         <div class="info-box mb-3 bg-warning">
                             <span class="info-box-icon"><i class="fas fa-tag"></i></span>
 
@@ -233,14 +237,14 @@ const myPosts = (activity, data) =>{
                         </div>
                     </div>
 
-                    <div class="col-sm-8">
-                        <img class="img-fluid mb-3" style="height: 22rem;width: 100%;" src="img/img-post/${arrayImg[0]}" alt="Photo">
+                    <div class="col-8 p-0">
+                        <img class="img-fluid mb-3" style="height: 50vh;width: 100%;" src="img/img-post/${arrayImg[0]}" alt="Photo">
                     </div>
                     
-                    <div class="col-sm-4">
-                        <img class="img-fluid mb-2" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[1]}" alt="Photo">
-                        <img class="img-fluid mb-2" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[2]}" alt="Photo">
-                        <img class="img-fluid" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[3]}" alt="Photo">
+                    <div class="col-4 p-0">
+                        <img class="img-fluid mb-2" style="height: 16vh;width: 100%;" src="img/img-post/${arrayImg[1]}" alt="Photo">
+                        <img class="img-fluid mb-2" style="height: 16vh;width: 100%;" src="img/img-post/${arrayImg[2]}" alt="Photo">
+                        <img class="img-fluid" style="height: 16vh;width: 100%;" src="img/img-post/${arrayImg[3]}" alt="Photo">
                     </div>
                 </div>
 
@@ -250,14 +254,14 @@ const myPosts = (activity, data) =>{
                     <a href="#" class="link-black text-sm"><i
                             class="far fa-thumbs-up mr-1"></i> Like</a>
                     <span class="float-right">
-                        <a href="#" class="link-black text-sm">
-                            <i class="far fa-comments mr-1"></i> Comments (5)
+                        <a href="#" class="link-black text-sm mr-3">
+                            <i class="far fa-comments"></i> Comments (5)
                         </a>
                     </span>
                 </p>
 
-                <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-            </a>
+                <input class="form-control form-control-sm mr-3" type="text" placeholder="Type a comment">
+            </div>
         `;
 
     });
@@ -298,7 +302,7 @@ const Posts = (contentPosts, data) => {
                             ( d <= 0 && mes <= 0 ) ? "hace " + h + " h" : 
                             ( d <= 10 && mes <= 0 ) ? "hace " + d + " d ": mesP;
         contentPosts.innerHTML += `
-            <a href="product" class="card-body">
+            <div class="card-body p-1 pl-3 mt-3">
                 <div class="tab-content">
                     <div class="active tab-pane" id="activity">
                         <div class="post mb-4">
@@ -312,7 +316,7 @@ const Posts = (contentPosts, data) => {
                             <h2>${dat.title}</h2>
                             <p>${dat.description}</p>
                             <div class="row mb-3">
-                                <div class="col-sm-6">
+                                <div class="col-sm-6 p-1">
                                     <div class="info-box mb-3 bg-primary">
                                         <span class="info-box-icon"><i class="fas fa-dollar-sign"></i></span>
             
@@ -322,7 +326,7 @@ const Posts = (contentPosts, data) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6 p-1">
                                     <div class="info-box mb-3 bg-warning">
                                         <span class="info-box-icon"><i class="fas fa-tag"></i></span>
             
@@ -333,14 +337,14 @@ const Posts = (contentPosts, data) => {
                                     </div>
                                 </div>
             
-                                <div class="col-sm-8">
-                                    <img class="img-fluid mb-3" style="height: 22rem;width: 100%;" src="img/img-post/${arrayImg[0]}" alt="Photo">
+                                <div class="col-8 p-0">
+                                    <img class="img-fluid mb-3" style="height: 50vh;width: 100%;" src="img/img-post/${arrayImg[0]}" alt="Photo">
                                 </div>
                                 
-                                <div class="col-sm-4">
-                                    <img class="img-fluid mb-2" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[1]}" alt="Photo">
-                                    <img class="img-fluid mb-2" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[2]}" alt="Photo">
-                                    <img class="img-fluid" style="height: 7rem;width: 100%;" src="img/img-post/${arrayImg[3]}" alt="Photo">
+                                <div class="col-4 p-0">
+                                    <img class="img-fluid mb-2" style="height: 16vh;width: 100%;" src="img/img-post/${arrayImg[1]}" alt="Photo">
+                                    <img class="img-fluid mb-2" style="height: 16vh;width: 100%;" src="img/img-post/${arrayImg[2]}" alt="Photo">
+                                    <img class="img-fluid" style="height: 16vh;width: 100%;" src="img/img-post/${arrayImg[3]}" alt="Photo">
                                 </div>
                             </div>
             
@@ -350,17 +354,17 @@ const Posts = (contentPosts, data) => {
                                 <a href="#" class="link-black text-sm"><i
                                         class="far fa-thumbs-up mr-1"></i> Like</a>
                                 <span class="float-right">
-                                    <a href="#" class="link-black text-sm">
+                                    <a href="#" class="link-black text-sm mr-3">
                                         <i class="far fa-comments mr-1"></i> Comments (5)
                                     </a>
                                 </span>
                             </p>
             
-                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                            <input class="form-control form-control-sm mr-4" type="text" placeholder="Type a comment">
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         `;
 
     });
@@ -422,7 +426,7 @@ const Posts = (contentPosts, data) => {
 
             }else if(myDropzone.files.length == myDropzone.options.maxFiles){
 
-                setInterval( () => {
+                setTimeout( () => {
                                 
                     form.classList.remove('d-none');
                     file.classList.add('d-none');

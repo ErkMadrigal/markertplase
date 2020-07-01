@@ -5,26 +5,25 @@
             $titleNav = null;
             include 'modules/components/nav-page.php';
         ?>
-            <div class="card m-5 align-items-center border-primary shadow p-3 mb-5 bg-white rounded">
-                <div class="row">
-                    <div class="col-5">
-                        <img src="img/mercado.png" class="img-fluid rounded float-right" alt="Responsive image" style="width: 20%;">
-                    </div>
-                    <div class="col-7">
-                        <h1 class="rounded float-left"><b>Market</b>Plase</h1>
-                    </div>
-                </div>
-                <div class="input-group input-group input-group-lg mb-3 mt-5">
+            <div class="card border-primary shadow mb-5 bg-white rounded container-md">
+                        <div class="direct-chat-msg mt-4">
+                            <img src="img/mercado.png" class="img-fluid direct-chat-img rounded ml-5" alt="Responsive image" style="width: 20%;height: 20%;">
+                            <div class="float-left">
+                                <h1 class="rounded float-left mt-4 ml-2"><b>Market</b>Plase</h1>
+                            </div>
+                        </div>
+                <div class="input-group input-group input-group-lg mb-3 mt-5 container">
                     <input type="text" class="form-control" placeholder="find what you want" aria-label="find what you want" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <span class="input-group-text bg-primary text-white" id="basic-addon2"><i class="fas fa-search"></i></span>
                     </div>
                 </div>
             </div>
+            
 
             <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-lg-3 col-6 mb-5">
+            <div class="row p-0 m-0">
+                <div class="col-md-3">
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
@@ -39,7 +38,7 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-6 mb-5">
+                <div class="col-md-3">
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
@@ -54,7 +53,7 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-6 mb-5">
+                <div class="col-md-3">
                    <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
@@ -69,7 +68,7 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-6 mb-5">
+                <div class="col-md-3">
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">

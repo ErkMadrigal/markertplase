@@ -1,4 +1,4 @@
-    <section class="content-header">
+    <section class="content-header d-none d-sm-none d-lg-block d-xl-block">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">

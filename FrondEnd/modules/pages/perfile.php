@@ -35,7 +35,7 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-9 order-2 order-lg-1 order-xl-1" style="height: 60rem;overflow-y: scroll;">
+                        <div class="col-md-9 order-2 order-lg-1 order-xl-1 p-0" style="height: 60rem;overflow-y: scroll;">
 
                             <?php if($idUsr == $IdPerfile): include "modules/components/card-posting.php"; else:?>
                                 <form action="./" class="dropzone d-none" id="myAwesomeDropzone"> 
@@ -45,7 +45,7 @@
                             
                             <?php if($idUsr == $IdPerfile):?>
                                 <div class="card" id="datos_perfil">
-                                    <div class="card-header p-2">
+                                    <div class="card-header mb-4 p-0">
                                         <ul class="nav nav-pills">
                                             <li class="nav-item"><a class="nav-link active" href="#activity"
                                                     data-toggle="tab">Activity</a></li>
@@ -55,7 +55,7 @@
                                                     data-toggle="tab">Settings</a></li>
                                         </ul>
                                     </div>
-                                    <div class="card-body mb-4">
+                                    <div class="card-body mb-4 p-1 pl-3">
                                         <div class="tab-content">
                                             <div class="active tab-pane" id="activity">
                                                 
@@ -253,7 +253,7 @@
 
                         </div>
 
-                        <div class="col-md-3 order-1 order-lg-2 order-xl-2">
+                        <div class="col-md-3 order-1 order-lg-2 order-xl-2 p-0">
                             <div id="Contenedor-perfil"></div>
                         </div>
                             
